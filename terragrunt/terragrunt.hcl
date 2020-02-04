@@ -1,4 +1,4 @@
-terraform {
+out {
   a = 10
   b = {
     c = 100
