@@ -6,8 +6,9 @@ dependency "subnet_public" {
   config_path = "../subnet_public"
 
   mock_outputs = {
-    subnets = "{{dependency.subnet_public.outputs.ids}}"
+    ids = ["{{dependency.subnet_public.outputs.ids}}"]
   }
+  mock_outputs_allowed_terraform_commands = ["plan"]
 }
 
 dependency "s3_bucket_lb_log" {
@@ -16,6 +17,7 @@ dependency "s3_bucket_lb_log" {
   mock_outputs = {
     bucket = "{{dependency.s3_bucket_lb_log.outputs.bucket}}"
   }
+  mock_outputs_allowed_terraform_commands = ["plan"]
 }
 
 inputs = {

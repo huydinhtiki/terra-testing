@@ -4,6 +4,11 @@ include {
 
 dependency "vpc" {
   config_path = "../vpc"
+
+  mock_outputs = {
+    id = "{{dependency.vpc.outputs.id}}"
+  }
+  mock_outputs_allowed_terraform_commands = ["plan"]
 }
 
 inputs = {

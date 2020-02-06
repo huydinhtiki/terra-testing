@@ -4,10 +4,20 @@ include {
 
 dependency "vpc" {
   config_path = "../vpc"
+
+  mock_outputs = {
+    id = "{{dependency.vpc.outputs.id}}"
+  }
+  mock_outputs_allowed_terraform_commands = ["plan"]
 }
 
 dependency "internet_gateway" {
   config_path = "../internet_gateway"
+
+  mock_outputs = {
+    id = "{{dependency.internet_gateway.outputs.id}}"
+  }
+  mock_outputs_allowed_terraform_commands = ["plan"]
 }
 
 #dependency "subnet_public" {
